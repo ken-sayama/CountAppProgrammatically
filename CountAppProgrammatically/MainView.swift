@@ -40,12 +40,6 @@ class MainView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        let labelSize = self.numberLabel.sizeThatFits(self.bounds.size)
-//        let x = (self.bounds.width - labelSize.width) / 2
-//        let y = (self.bounds.height - labelSize.height) / 3
-//        let labelOrigin = CGPoint(x: x, y: y)
-        
-        //numberLabel.frame = CGRect(origin: labelOrigin, size: labelSize)
         numberLabel.frame = CGRect(x: bounds.width / 4, y: bounds.height / 2 - 50, width: bounds.width / 2, height: 50)
         numberLabel.textColor = .black
         numberLabel.text = "0"

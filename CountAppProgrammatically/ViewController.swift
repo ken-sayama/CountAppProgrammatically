@@ -10,28 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //let mainView = MainView()
+    let mainView = MainView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "CountAppProgramatically"
         
-        // BaseView.swiftを作成
-        //let baseView = BaseView(frame: self.view.bounds)
-        let mainView = MainView(frame: self.view.bounds)
+        mainView.frame = self.view.bounds
+        
+        mainView.delegate = self
         
         // 自動でリサイズしてくれる設定
         mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.view.addSubview(mainView)
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension ViewController: MainViewDelegate {
+    func mainViewOnClickPlus() {
+        let str = mainView.numberLabel.text!
+        let num = Int(str)! + 1
+        
+        mainView.numberLabel.text = String(num)
     }
-
-
+    
+    func mainViewOnClickMinus() {
+        let str = mainView.numberLabel.text!
+        let num = Int(str)! - 1
+        
+        mainView.numberLabel.text = String(num)
+    }
 }
 
